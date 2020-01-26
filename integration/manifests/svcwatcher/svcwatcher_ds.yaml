@@ -1,4 +1,4 @@
-apiVersion: apps/v1beta2
+apiVersion: apps/v1
 kind: DaemonSet
 metadata:
   name: svcwatcher
@@ -26,7 +26,7 @@ spec:
         "node-role.kubernetes.io/master": ""
       containers:
         - name: svcwatcher
-          image: svcwatcher
+          image: localhost:5000/svcwatcher
           imagePullPolicy: IfNotPresent
           args:
             - "--logtostderr"
