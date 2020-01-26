@@ -3,7 +3,8 @@ MAINTAINER Levente Kale <levente.kale@nokia.com>
 
 COPY netwatcher /usr/local/bin/netwatcher
 
-RUN apk add --no-cache --virtual .tools curl libcap iputils  \
+RUN apk update \
+&&  apk add --no-cache --virtual .tools curl libcap iputils  \
 &&  adduser -u 147 -D -H -s /sbin/nologin danm \
 &&  chown root:danm /usr/local/bin/netwatcher \
 &&  chmod 750 /usr/local/bin/netwatcher \
